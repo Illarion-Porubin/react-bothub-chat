@@ -1,0 +1,62 @@
+$Primary: #1c64f2;
+$Gray-3: #222b44;
+$Gray-4: #121825;
+
+:root {
+    --darktheme-base-black: #0e0c15;
+    --darktheme-base-white: #fff;
+    --darktheme-accent-primary: #1c64f2;
+    --darktheme-accent-primary-light: #4785ff;
+    --darktheme-accent-strong: #073ca4;
+    --darktheme-accent-strong-down: #0e3176;
+    --darktheme-gray-scale-gray-1: #616d8d;
+    --darktheme-gray-scale-gray-2: #313e62;
+    --darktheme-gray-scale-gray-3: #222b44;
+    --darktheme-gray-scale-gray-4: #121825;
+    --darktheme-gray-scale-gray-5: #374151;
+    --darktheme-gray-scale-gray-6: #9ca3af;
+    --darktheme-gray-scale-gray-7: #171e2f;
+    --other-critic: #fe4242;
+    --other-critic-2: #cc3131;
+    --other-critic-3: #8d1f1f;
+    --other-purple: #941cf2;
+    --other-aqua: #1cb2f2;
+    --other-orange: #f29c1c;
+    --other-green: #1abb34;
+    --other-yellow: #f2dd1c;
+    --other-pink: #ee1cf2;
+    --other-gpt-3-5-color: #28a08c;
+    --other-gpt-4-color: #735ffa;
+    --other-dalle-color: #3876d3;
+    --other-midjourney-color: #9939fa;
+    --lighttheme-base-black: #fff;
+    --lighttheme-base-white: #0e0c15;
+    --lighttheme-gray-scale-gray-1: #adb8c0;
+    --lighttheme-gray-scale-gray-2: #cdd5da;
+    --lighttheme-gray-scale-gray-3: #dbe0e4;
+    --lighttheme-gray-scale-gray-4: #f5f6f7;
+    --lighttheme-gray-scale-gray-5: #adb5bd;
+    --lighttheme-gray-scale-gray-6: #dde8f3;
+    --lighttheme-gray-scale-gray-7: #e6e9ec;
+    ////////////
+    --font-family: "IBM Plex Sans", sans-serif;
+    --bothub-scale: 0.9; // Default value for screens wider than 1600px
+}
+
+@media (max-width: 1599px) {
+    :root {
+        --bothub-scale: 0.85;
+    }
+}
+
+@media (max-width: 1199px) {
+    :root {
+        --bothub-scale: 0.8;
+    }
+}
+
+@media (max-width: 1099px) {
+    :root {
+        --bothub-scale: 0.75;
+    }
+}

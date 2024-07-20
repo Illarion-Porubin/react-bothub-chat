@@ -1,0 +1,21 @@
+.opp {
+    width: 100%;
+    height: auto;
+    text-align: center;
+    margin-bottom: 86px;
+}
+
+.title {
+    font-weight: 600;
+    font-size: 34px;
+    line-height: 129%;
+    text-align: center;
+    margin-bottom: 42px;
+}
+
+.list {
+    display: grid;
+    justify-items: center;
+    grid-template-columns: repeat(3, 1fr);
+    gap: calc(var(--bothub-scale, 1)* 30px);
+}

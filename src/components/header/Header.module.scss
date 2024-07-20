@@ -1,0 +1,84 @@
+@import "../../styles//Variables.scss";
+
+.wrap {
+    z-index: 4;
+    min-width: calc(var(--bothub-scale, 1) * 400px);
+    width: 100%;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    height: calc(var(--bothub-scale, 1) * 80px);
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: inherit;
+    box-sizing: border-box;
+    position: relative;
+    backdrop-filter: blur(18px);
+    background: rgba(18, 24, 37, 0.4);
+}
+
+.menuWrap {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    min-width: 97px;
+    min-height: 29px;
+    margin-right: 24px;
+}
+
+.menu {
+    display: flex;
+    align-items: center;
+    height: calc(var(--bothub-scale, 1) * 4px);
+    gap: calc(var(--bothub-scale, 1) * 40px);
+    padding-left: calc(var(--bothub-scale, 1) * 24px);
+    margin-left: calc(var(--bothub-scale, 1) * 24px);
+    border-left: 1px solid rgb(34, 43, 68);
+}
+
+.item {
+    font-weight: 600;
+    text-decoration: none;
+    font-size: max(calc(var(--bothub-scale, 1) * 16px), 12px);
+    line-height: max(calc(var(--bothub-scale, 1) * 22px), 16px);
+    &:first-child {
+        display: flex;
+    }
+}
+
+.arrow {
+    position: relative;
+    margin-left: 10px;
+    top: 2px;
+}
+
+.buttons {
+    display: flex;
+    align-items: center;
+    gap: calc(var(--bothub-scale, 1) * 34px);
+}
+
+.headerLang {
+    width: 70px;
+    height: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.authBtn {
+    border-radius: 8px;
+    padding: 10px 18px;
+    width: 131px;
+    height: 40px;
+    box-shadow: inset 0 1px 1px 0 rgba(255, 255, 255, 0.4);
+    background: $Primary;
+}
