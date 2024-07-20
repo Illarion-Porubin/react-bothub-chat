@@ -41,43 +41,25 @@ const Billboard: React.FC = () => {
                           alt="avatar"
                         />
                       </div>
-                      <div className={style.bothubText}>
-                        <span className={style.text}>
+                      <div className={style.bothubInfo}>
+                        <p className={style.bothubText}>
                           BotHub: ChatGPT & Midjourney
-                        </span>
-                        <span className={style.text}>bot</span>
+                        </p>
+                        <span className={style.bothubText}>bot</span>
                       </div>
                     </div>
-                    <div className={style.chatHeadCheck}>
-                      <label
+                    <label
                         className={style.saveContent}
                         htmlFor="chatHeadInput"
                       >
+                        Сохранить контекст
                         <input
-                          className={style.input}
-                          disabled
+                          className={style.saveContentCheck}
+                          checked={true}
                           type="checkbox"
                           id="chatHeadInput"
                         />
-                        <span className={style.check}>
-                          <svg
-                            className={style.checkOk}
-                            viewBox="0 0 16 17"
-                            width="20"
-                            height="20"
-                            fill="none"
-                          >
-                            <path
-                              d="M12.7908 4.23434C13.0697 4.54679 13.0697 5.05421 12.7908 5.36666L7.07711 11.7657C6.79813 12.0781 6.34505 12.0781 6.06606 11.7657L3.20924 8.56616C2.93025 8.25371 2.93025 7.74629 3.20924 7.43384C3.48823 7.12139 3.9413 7.12139 4.22029 7.43384L6.5727 10.0659L11.7819 4.23434C12.0609 3.92189 12.514 3.92189 12.793 4.23434H12.7908Z"
-                              fill="white"
-                            ></path>
-                          </svg>
-                        </span>
-                        <span className={style.typography}>
-                          Сохранить контекст
-                        </span>
                       </label>
-                    </div>
                   </div>
                 </div>
                 <div className={style.chatBody}>

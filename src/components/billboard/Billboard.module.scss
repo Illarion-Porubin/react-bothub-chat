@@ -161,65 +161,37 @@
     }
 }
 
-.bothubText {
+.bothubInfo {
     display: flex;
     flex-direction: column;
     gap: 1px;
-    .text {
-        margin: 0px;
-        color: rgb(255, 255, 255);
-        text-decoration: none;
-        text-align: left;
-        --skeleton-width: calc(var(--bothub-scale, 1) * 200px);
-        font-weight: 400;
-        font-size: max(calc(var(--bothub-scale, 1) * 16px), 12px);
-        line-height: max(calc(var(--bothub-scale, 1) * 22px), 16px);
-        --skeleton-height: calc(var(--bothub-scale, 1) * 22px);
-        &:last-child {
-            color: rgb(97, 109, 141);
-        }
+}
+
+
+.bothubText {
+    margin: 0px;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    text-align: left;
+    font-weight: 400;
+    font-size: max(calc(var(--bothub-scale, 1) * 16px), 12px);
+    line-height: max(calc(var(--bothub-scale, 1) * 22px), 16px);
+    &:last-child {
+        color: rgb(97, 109, 141);
     }
 }
 
 .saveContent {
-    display: inline-flex;
-    align-items: center;
-    gap: calc(var(--bothub-scale, 1) * 8px);
-    user-select: none;
-    cursor: not-allowed;
-    flex-direction: row-reverse;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 133%;
+    color: var(--darktheme-base-white);
+}
 
-    &[type="checkbox"],
-    [type="radio"] {
-        box-sizing: border-box;
-        padding: 0;
-    }
-    .input {
-        display: none;
-    }
-
-    .check {
-        border-color: rgb(97, 109, 141);
-        background: rgb(97, 109, 141);
-        cursor: not-allowed;
-        .checkOk {
-            visibility: hidden;
-            display: inline-flex;
-            flex-shrink: 0;
-            width: calc(var(--bothub-scale, 1) * 20px);
-            height: calc(var(--bothub-scale, 1) * 20px);
-        }
-    }
-    .typography {
-        display: inline-flex;
-        width: 100%;
-        align-items: center;
-        font-size: calc(var(--bothub-scale, 1) * 14px);
-        line-height: 129%;
-        gap: calc(var(--bothub-scale, 1) * 8px);
-        cursor: inherit;
-        color: #fff;
-    }
+.saveContentCheck {
+    position: relative;
+    left: 4px;
+    top: 3px;
 }
 
 .chatBody {
@@ -261,7 +233,7 @@
             .name {
                 margin-left: 50px;
                 font-weight: 400;
-                font-size: calc(var(--bothub-scale, 1) * 16px);
+                font-size: calc(var(--bothub-scale, 16) * 12px);
                 line-height: 100%;
                 color: #fff;
             }
@@ -304,7 +276,7 @@
 
 ///////////input
 
-.chatPrompt{
+.chatPrompt {
     padding: 24px;
     display: flex;
 }
@@ -312,24 +284,24 @@
 .chatInput {
     position: relative;
     border: 1px solid var(--darktheme-gray-scale-gray-2);
+    font-size: calc(var(--bothub-scale, 1) * 16px);
     border-radius: 10px;
     padding: 14px 20px;
-    padding-right: 100px;
+    padding-right: 70px;
     width: 100%;
     height: 66px;
     background: var(--darktheme-gray-scale-gray-4);
     color: #fff;
-    &::placeholder{
+    &::placeholder {
         color: #fff;
-        margin-right: 100px;
-        padding-right: 100px;
+        font-size: calc(var(--bothub-scale, 1) * 12px);
     }
 }
 
-.chatInputBtn{
+.chatInputBtn {
     position: absolute;
     right: 40px;
-    bottom: 34px
+    bottom: 34px;
 }
 
 ///////////scroll
@@ -366,8 +338,8 @@
 
 .title {
     font-weight: 700;
-    font-size: 46px;
-    line-height: 130%;
+    font-size: max(calc(var(--bothub-scale, 1) * 46px), 12px);
+    line-height: max(calc(var(--bothub-scale, 1) * 60px), 16px);
     margin-bottom: 20px;
 }
 
@@ -389,18 +361,24 @@
 
 ///////media
 
-@media(max-width: 800px) {
-    .info{
+@media (max-width: 800px) {
+    .chat {
+        height: calc(var(--bothub-scale, 1) * 580px);
+    }
+    .info {
         align-items: center;
         text-align: center;
     }
-    .billboard{
+    .billboard {
         grid-template-columns: 1fr;
     }
 }
 
-@media(max-width: 600px) {
-    .chat{
-       height: 480px;
+
+@media (max-width: 480px) {
+    .chatHeadContent {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
     }
 }

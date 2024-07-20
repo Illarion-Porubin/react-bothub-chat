@@ -39,6 +39,10 @@ body {
   font-family: IBM Plex Sans;
 }
 
+input:focus {
+  outline: none;
+}
+
 .container {
   width: 100%;
   max-width: calc(var(--bothub-scale, 1) * 1370px);
