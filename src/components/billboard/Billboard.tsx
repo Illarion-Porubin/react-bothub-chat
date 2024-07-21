@@ -8,6 +8,8 @@ import userIcon from "../../assets/png/userIcon.png";
 import inputBtn from "../../assets/png/inputBtn.png";
 
 const Billboard: React.FC = () => {
+  const [check, setCheck] = React.useState(false);
+
   return (
     <section className={style.section} id="started">
       <div className={style.bg}></div>
@@ -55,7 +57,8 @@ const Billboard: React.FC = () => {
                         Сохранить контекст
                         <input
                           className={style.saveContentCheck}
-                          checked={true}
+                          checked={check}
+                          onChange={() => setCheck(!check)}
                           type="checkbox"
                           id="chatHeadInput"
                         />
