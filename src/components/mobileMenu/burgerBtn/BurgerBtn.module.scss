@@ -1,0 +1,94 @@
+.burger.active {
+    .burger__line_first::after {
+        transform: rotate(44deg);
+        top: calc(var(--bothub-scale, 1) * 8px);
+        width: calc(var(--bothub-scale, 1) * 32px);
+    }
+    .burger__line_second::after {
+        transform: rotate(134deg);
+        top: 0px;
+        width: calc(var(--bothub-scale, 1) * 32px);
+    }
+    .burger__line_last::after {
+        left: 100%;
+        width: calc(var(--bothub-scale, 1) * 12px);
+    }
+}
+
+.lineWrap {
+    position: relative;
+    top: calc(var(--bothub-scale, 1) * 2px);
+    right: calc(var(--bothub-scale, 1) * 0.4px);  
+}
+
+.burger {
+    margin: 0;
+    padding: 0;
+    transition: all 0.3s;
+    position: relative;
+    display: none;
+    z-index: 11;
+    &:focus {
+        outline: none;
+    }
+
+    &__line_first,
+    &__line_second {
+        width: calc(var(--bothub-scale, 1) * 30px);
+        height: calc(var(--bothub-scale, 1) * 8px);
+        position: relative;
+        display: block;
+
+        &::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: calc(var(--bothub-scale, 1) * 30px);
+            height: calc(var(--bothub-scale, 1) * 3.8px);
+            background-color: #fff;
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+    }
+
+    &__line_last {
+        width: calc(var(--bothub-scale, 1) * 30px);
+        height: calc(var(--bothub-scale, 1) * 8px);
+        position: relative;
+        display: block;
+        overflow: hidden;
+        &::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0px;
+            right: 0;
+            bottom: 0;
+            width: calc(var(--bothub-scale, 1) * 30px);
+            height: calc(var(--bothub-scale, 1) * 3.8px);
+            background-color: #fff;
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+    }
+}
+
+///media
+
+@media (max-width: 800px) {
+    .burger {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border-radius: 8px;
+        box-shadow: inset 0 1px 1px 0 rgba(255, 255, 255, 0.4);
+        background: #1c64f2;
+        cursor: pointer;
+        width: calc(var(--bothub-scale, 40) * 40px);
+        height: calc(var(--bothub-scale, 40) * 40px);
+    }
+}

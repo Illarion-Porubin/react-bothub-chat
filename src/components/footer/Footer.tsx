@@ -1,6 +1,7 @@
 import React from "react";
 import style from "./Footer.module.scss";
 import logo from "../../assets/png/logo.png";
+import alari from "../../assets/png/alri.png";
 
 const Footer: React.FC = () => {
   return (
@@ -17,31 +18,31 @@ const Footer: React.FC = () => {
               Пользовательское соглашение
             </a>
             <a href="/#">
-              <img src="/#" alt="алари" />
+              <img src={alari} alt="alari" />
             </a>
           </div>
           <nav className={style.menu}>
             <ul className={style.category}>
               <li className={style.item}>
-                <p>Информация</p>
+                <p className={style.title}>Информация</p>
               </li>
               <li className={style.item}>
-                <a href="/#">Главная страница</a>
+                <a className={style.link} href="/#">Главная страница</a>
               </li>
               <li className={style.item}>
-                <a href="/#">Тарифы</a>
+                <a className={style.link} href="/#">Тарифы</a>
               </li>
               <li className={style.item}>
-                <a href="/#">Контакты</a>
+                <a className={style.link} href="/#">Контакты</a>
               </li>
               <li className={style.item}>
-                <a href="/#">Наши возможности</a>
+                <a className={style.link} href="/#">Наши возможности</a>
               </li>
               <li className={style.item}>
-                <a href="/#">Модели нейросетей</a>
+                <a className={style.link} href="/#">Модели нейросетей</a>
               </li>
               <li className={style.item}>
-                <a href="/#">О Нас</a>
+                <a className={style.link} href="/#">О Нас</a>
               </li>
               <li className={style.item}>
                 <a href="/#">Для инвесторов</a>
@@ -49,45 +50,45 @@ const Footer: React.FC = () => {
             </ul>
             <ul className={style.category}>
               <li className={style.item}>
-                <p>Наши продукты</p>
+                <p className={style.title}>Наши продукты</p>
               </li>
               <li className={style.item}>
-                <a href="/#">ChatGPT для бизнеса</a>
+                <a className={style.link} href="/#">ChatGPT для бизнеса</a>
               </li>
               <li className={style.item}>
-                <a href="/#">Агрегатор нейросетей</a>
+                <a className={style.link} href="/#">Агрегатор нейросетей</a>
               </li>
               <li className={style.item}>
-                <a href="/#">ChatGPT в Telegram</a>
+                <a className={style.link} href="/#">ChatGPT в Telegram</a>
               </li>
             </ul>
             <ul className={style.category}>
               <li className={style.item}>
-                <p>Ссылки</p>
+                <p className={style.title}>Ссылки</p>
               </li>
               <li className={style.item}>
-                <a href="/#">Сообщество в телеграм</a>
+                <a className={style.link} href="/#">Сообщество в телеграм</a>
               </li>
               <li className={style.item}>
-                <a href="/#">Телеграм бот</a>
+                <a className={style.link} href="/#">Телеграм бот</a>
               </li>
               <li className={style.item}>
-                <a href="/#">email@bothub.chat</a>
+                <a className={style.link} href="/#">email@bothub.chat</a>
               </li>
             </ul>
             <ul className={style.category}>
               <ul>
                 <li className={style.item}>
-                  <p>Блог</p>
+                  <p className={style.title}>Блог</p>
                 </li>
                 <li className={style.item}>
-                  <a href="/#">Наш блог</a>
+                  <a className={style.link} href="/#">Наш блог</a>
                 </li>
                 <li className={style.item}>
-                  <a href="/#">Habr</a>
+                  <a className={style.link} href="/#">Habr</a>
                 </li>
                 <li className={style.item}>
-                  <a href="/#">Телеграм</a>
+                  <a className={style.link} href="/#">Телеграм</a>
                 </li>
               </ul>
             </ul>

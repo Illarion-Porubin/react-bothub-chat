@@ -1,48 +1,58 @@
-import React from "react";
+import React, { useState } from "react";
 import style from "./Header.module.scss";
 import logo from "../../assets/png/logo.png";
+import { BurgerBtn } from "../mobileMenu/burgerBtn/BurgerBtn";
+import { MobileMenuNav } from "../mobileMenu/mobileMenuNav/MobileMenuNav";
 
 const Header: React.FC = () => {
+  const [active, setActive] = useState(false);
+
+  const menuList = [
+    { value: "Продукты", link: "/#" },
+    { value: "Пакеты", link: "/#" },
+    { value: "API", link: "/#" },
+    { value: "Блог", link: "/#" },
+  ];
+
   return (
     <div className={style.wrap}>
-      <div className="container fix">
-        <div className={style.header}>
+      <div className={style.header}>
+        <div className="container fix">
           <div className={style.menuWrap}>
             <a className={style.logoWrap} href="/#">
               <img className={style.logo} src={logo} alt="logo" />
             </a>
             <nav className={style.menu}>
-              <button className={style.item}>
-                <a className={style.link} href="/#">
-                  Продукты
-                </a>
-                <span className={style.arrow}>
-                  <svg
-                    viewBox="0 0 16 16"
-                    width="16"
-                    height="16"
-                    fill="none"
-                    style={{ transform: `rotateZ(0deg)` }}
-                  >
-                    <path
-                      d="M3 6L8 10L13 6"
-                      stroke="#FFFFFF"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    ></path>
-                  </svg>
-                </span>
-              </button>
-              <a className={style.item} href="/#">
-                Пакеты
-              </a>
-              <a className={style.item} href="/#">
-                API
-              </a>
-              <a className={style.item} href="/#">
-                Блог
-              </a>
+              {menuList.map((item, id) =>
+                item.value === "Продукты" ? (
+                  <button className={style.item} key={id}>
+                    <a className={style.link} href={item.link}>
+                      Продукты
+                    </a>
+                    <span className={style.arrow}>
+                      <svg
+                        viewBox="0 0 16 16"
+                        width="16"
+                        height="16"
+                        fill="none"
+                        style={{ transform: `rotateZ(0deg)` }}
+                      >
+                        <path
+                          d="M3 6L8 10L13 6"
+                          stroke="#FFFFFF"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        ></path>
+                      </svg>
+                    </span>
+                  </button>
+                ) : (
+                  <a className={style.item} href={item.link} key={id}>
+                    Пакеты
+                  </a>
+                )
+              )}
             </nav>
           </div>
           <div className={style.buttons}>
@@ -72,10 +82,14 @@ const Header: React.FC = () => {
                 ></path>
               </svg>
             </button>
-            <button className={style.authBtn}>Авторизация</button>
+            <div className={style.assets}>
+              <button className={style.authBtn}>Авторизация</button>
+              <BurgerBtn active={active} setActive={setActive} />
+            </div>
           </div>
         </div>
       </div>
+      <MobileMenuNav menuList={menuList} active={active} />
     </div>
   );
 };

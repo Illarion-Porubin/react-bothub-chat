@@ -11,9 +11,9 @@ const Home = () => {
       <Header />
       <div className={style.main}>
         <Billboard />
-        {/* <Opportunities /> */}
-        {/* <Generation /> */}
-        {/* <Footer/> */}
+        <Opportunities />
+        <Generation />
+        <Footer/>
       </div>
     </>
   );

@@ -47,7 +47,7 @@ input:focus {
   width: 100%;
   max-width: calc(var(--bothub-scale, 1) * 1370px);
   margin: auto;
-  padding: 0px calc(var(--bothub-scale, 1) * 40px);
+  padding: 0px calc(var(--bothub-scale, 1) * 30px);
 }
 
 .fix {
@@ -57,27 +57,3 @@ input:focus {
   height: inherit;
   position: relative;
 }
-
-// @media (max-width: 1600px) {
-//   .container {
-//     padding: 0 160px;
-//   }
-// }
-
-// @media (max-width: 1440px) {
-//   .container {
-//     padding: 0 120px;
-//   }
-// }
-
-// @media (max-width: 1280px) {
-//   .container {
-//     padding: 0 60px;
-//   }
-// }
-
-// @media (max-width: 1080px) {
-//   .container {
-//     padding: 0 30px;
-//   }
-// }

@@ -29,8 +29,8 @@
 }
 
 .logo {
-    min-width: 97px;
-    min-height: 29px;
+    width: 97px;
+    height: 29px;
     margin-right: 24px;
 }
 
@@ -76,9 +76,28 @@
 
 .authBtn {
     border-radius: 8px;
-    padding: 10px 18px;
-    width: 131px;
-    height: 40px;
+    padding: calc(var(--bothub-scale, 10) * 10px);
+    width: calc(var(--bothub-scale, 40) * 130px);
+    height: calc(var(--bothub-scale, 40) * 40px);
     box-shadow: inset 0 1px 1px 0 rgba(255, 255, 255, 0.4);
-    background: $Primary;
+    font-size: calc(var(--bothub-scale, 10)* 16px);
+    background: var(--darktheme-accent-primary);
+}
+
+.assets{
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+@media(max-width: 800px) {
+    .menu{
+        display: none;
+    }
+}
+
+@media(max-width: 480px) {
+    .authBtn{
+        display: none;
+    }
 }

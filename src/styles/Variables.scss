@@ -1,4 +1,4 @@
-$Primary: #1c64f2;
+ 
 $Gray-3: #222b44;
 $Gray-4: #121825;
 
@@ -51,12 +51,18 @@ $Gray-4: #121825;
 
 @media (max-width: 1199px) {
     :root {
-        --bothub-scale: 0.8;
-    }
-}
-
-@media (max-width: 1099px) {
-    :root {
         --bothub-scale: 0.75;
     }
 }
+
+// @media (max-width: 999px) {
+//     :root {
+//         --bothub-scale: 0.7;
+//     }
+// }
+
+// @media (max-width: 899px) {
+//     :root {
+//         --bothub-scale: 0.6;
+//     }
+// }
