@@ -3,15 +3,38 @@ import style from "./Header.module.scss";
 import logo from "../../assets/png/logo.png";
 import { BurgerBtn } from "../mobileMenu/burgerBtn/BurgerBtn";
 import { MobileMenuNav } from "../mobileMenu/mobileMenuNav/MobileMenuNav";
+import { motion } from 'framer-motion';
+import popupIcon1 from "../../assets/png/popupIcon1.png";
+import popupIcon2 from "../../assets/png/popupIcon2.png";
+import popupIcon3 from "../../assets/png/popupIcon3.png";
 
 const Header: React.FC = () => {
   const [active, setActive] = useState(false);
+  const [popup, setPopup] = useState(false);
 
   const menuList = [
     { value: "Продукты", link: "/#" },
     { value: "Пакеты", link: "/#" },
     { value: "API", link: "/#" },
     { value: "Блог", link: "/#" },
+  ];
+
+  const popupList = [
+    {
+      img: popupIcon1 ,
+      title: "Агрегатор нейросетей BotHub",
+      text: "ChatGPT на базе 3.5 и 4.0 версии OpenAI",
+    },
+    {
+      img: popupIcon2,
+      title: "Telegram бот",
+      text: "Удобный бот в Telegram который всегда под рукой",
+    },
+    {
+      img: popupIcon3 ,
+      title: "Бизнес бот",
+      text: "ChatGPT для эффективного решения бизнес задач",
+    },
   ];
 
   return (
@@ -25,31 +48,51 @@ const Header: React.FC = () => {
             <nav className={style.menu}>
               {menuList.map((item, id) =>
                 item.value === "Продукты" ? (
-                  <button className={style.item} key={id}>
-                    <a className={style.link} href={item.link}>
-                      Продукты
-                    </a>
-                    <span className={style.arrow}>
-                      <svg
-                        viewBox="0 0 16 16"
-                        width="16"
-                        height="16"
-                        fill="none"
-                        style={{ transform: `rotateZ(0deg)` }}
-                      >
-                        <path
-                          d="M3 6L8 10L13 6"
-                          stroke="#FFFFFF"
-                          strokeWidth="2"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        ></path>
-                      </svg>
-                    </span>
-                  </button>
+                  <div className={style.popupWrap} key={id}>
+                    <button
+                      className={style.item}
+                      key={id}
+                      onClick={() => setPopup(!popup)}
+                    >
+                      {item.value}
+                      <span className={style.arrow}>
+                        <svg
+                          viewBox="0 0 16 16"
+                          width="16"
+                          height="16"
+                          fill="none"
+                          style={{
+                            transition: `all .3s`,
+                            transform: popup
+                              ? `rotateZ(0deg)`
+                              : `rotateZ(180deg)`,
+                          }}
+                        >
+                          <path
+                            d="M3 6L8 10L13 6"
+                            stroke="#FFFFFF"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          ></path>
+                        </svg>
+                      </span>
+                    </button>
+                    <motion.div className={style.popup} animate={{ opacity: popup ? 1 : 0, visibility: popup ? "visible" : "hidden" }}>
+                      {popupList.map((item, id) => (
+                        <div className={style.popupItem} key={id} >
+                          <img className={style.popupIcon} src={item.img} alt={item.title} />
+                          <div className={style.popupInfo}>
+                            <p className={style.popupTitle}>{item.title}</p>
+                            <p className={style.popupText}>{item.text}</p>
+                          </div>
+                        </div>
+                      ))}
+                    </motion.div>
+                  </div>
                 ) : (
                   <a className={style.item} href={item.link} key={id}>
-                    Пакеты
+                    {item.value}
                   </a>
                 )
               )}
@@ -65,7 +108,7 @@ const Header: React.FC = () => {
                   fill="#FFFFFF"
                 ></path>
               </svg>
-              <span>ru</span>
+              <span>RU</span>
               <svg
                 viewBox="0 0 16 16"
                 width="16"

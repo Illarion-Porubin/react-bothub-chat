@@ -6,9 +6,48 @@ import avatar from "../../assets/png/avatar.png";
 import chatIcon from "../../assets/png/chatIcon.png";
 import userIcon from "../../assets/png/userIcon.png";
 import inputBtn from "../../assets/png/inputBtn.png";
+import { Configuration, OpenAIApi } from "openai-edge";
+
+interface IMessages {
+  role: "user" | "assistant";
+  content: string;
+}
 
 const Billboard: React.FC = () => {
   const [check, setCheck] = React.useState(false);
+  const [messageList, setMessageList] = React.useState<IMessages[]>([]);
+  const [text, setText] = React.useState<string>("");
+
+  const configuration = new Configuration({
+    apiKey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MGE2ZTgxLTRiMDMtNGQxNC1hMGQxLWI3N2RkZjlkMDY2ZiIsImlzRGV2ZWxvcGVyIjp0cnVlLCJpYXQiOjE3MjA1Mjk0NDgsImV4cCI6MjAzNjEwNTQ0OH0.Dm8QJpXfX2ChWcYZ5c0SLNzGpmEmh1dYPAMW3wz4v5M",
+    basePath: "https://bothub.chat/api/v2/openai/v1",
+  });
+  const openai = new OpenAIApi(configuration);
+
+  const prompt = async () => {
+    setMessageList(prev => [...prev, { role: "user",  content: text }])
+  };
+
+  const gemini = async () => {
+    try {
+      const completion = await openai.createChatCompletion({
+        messages: messageList,
+        model: "gemini-pro",
+      });
+    const message = (await completion.json()).choices[0].message.content as string;
+    setMessageList(prev => [...prev, { role: "assistant",  content: message }])
+    } catch (error) {
+        console.log(error);
+    }
+  }
+
+  React.useEffect(() => {
+    if (messageList.length > 0 && messageList[messageList.length - 1].role === 'user') {
+      gemini();
+    }
+  }, [messageList]);
+ 
+ 
 
   return (
     <section className={style.section} id="started">
@@ -69,34 +108,18 @@ const Billboard: React.FC = () => {
                   <div className={style.chatDisplay}>
                     <div className={style.chatContent}>
                       <div className={style.chatItems}>
-                        {new Array(10).fill("").map((_, id) => (
+                        {messageList.map((item:IMessages, id) => (
                           <React.Fragment key={id}>
-                            <div className={style.wrap}>
+                            <div className={item.role === "user" ? `${style.wrap} ${style.user}` : style.wrap}>
                               <div className={style.item}>
                                 <span className={style.name}>Gemini</span>
                                 <div className={style.infoChat}>
                                   <img
                                     className={style.icon}
-                                    src={chatIcon}
-                                    alt="chatIcon"
+                                    src={item.role === "user" ? userIcon : chatIcon}
+                                    alt={item.role === "user" ? "chatIcon" : "userIcon"}
                                   />
-                                  <p className={style.text}>
-                                    Привет! Чем я могу помочь?
-                                  </p>
-                                </div>
-                              </div>
-                            </div>
-
-                            <div className={`${style.wrap} ${style.user}`}>
-                              <div className={style.item}>
-                                <span className={style.name}>Gemini</span>
-                                <div className={style.infoChat}>
-                                  <img
-                                    className={style.icon}
-                                    src={userIcon}
-                                    alt="chatIcon"
-                                  />
-                                  <p className={style.text}>Привет бот?</p>
+                                  <p className={style.text}>{item.content}</p>
                                 </div>
                               </div>
                             </div>
@@ -110,8 +133,9 @@ const Billboard: React.FC = () => {
                       className={style.chatInput}
                       type="text"
                       placeholder="Спроси о чем-нибудь..."
+                      onChange={(e) => setText(e.target.value)}
                     />
-                    <button className={style.chatInputBtn}>
+                    <button className={style.chatInputBtn} onClick={prompt}>
                       <img src={inputBtn} alt="inputBtn" />
                     </button>
                   </div>

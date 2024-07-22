@@ -1,9 +1,10 @@
 @import "../../styles//Variables.scss";
 
+
 .section {
     background: none;
     position: relative;
-    padding-top: calc(var(--bothub-scale, 1) * 160px);
+    padding-top: calc(var(--bothub-scale, 1) * 200px);
     padding-bottom: calc(var(--bothub-scale, 1) * 14px);
     box-sizing: border-box;
     margin-bottom: calc(var(--bothub-scale, 1) * 60px);
@@ -197,6 +198,7 @@
 .chatBody {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     height: 100%;
     overflow: hidden;
     position: relative;
@@ -277,12 +279,14 @@
 ///////////input
 
 .chatPrompt {
+    width: 100%;
+    height: auto;
     padding: 24px;
     display: flex;
+    position: relative;
 }
 
 .chatInput {
-    position: relative;
     border: 1px solid var(--darktheme-gray-scale-gray-2);
     font-size: calc(var(--bothub-scale, 1) * 16px);
     border-radius: 10px;
