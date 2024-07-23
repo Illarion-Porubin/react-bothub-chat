@@ -166,9 +166,8 @@ const Billboard: React.FC = () => {
                     </div>
                   </div>
                   <div className={style.chatPrompt}>
-                    <input
+                    <textarea
                       className={style.chatInput}
-                      type="text"
                       placeholder="Спроси о чем-нибудь..."
                       onChange={(e) => setText(e.target.value)}
                       value={text}

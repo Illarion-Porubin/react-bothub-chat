@@ -1,6 +1,5 @@
 @import "../../styles//Variables.scss";
 
-
 .section {
     background: none;
     position: relative;
@@ -244,7 +243,7 @@
                 justify-content: center;
                 align-items: center;
                 gap: 12px;
-                .icon{
+                .icon {
                     width: calc(var(--bothub-scale, 1) * 40px);
                     height: calc(var(--bothub-scale, 1) * 40px);
                 }
@@ -292,18 +291,26 @@
 }
 
 .chatInput {
+    resize: none;
     border: 1px solid var(--darktheme-gray-scale-gray-2);
     font-size: calc(var(--bothub-scale, 1) * 16px);
     border-radius: 10px;
-    padding: 14px 20px;
+    padding: 20px 20px;
     padding-right: 70px;
     width: 100%;
     height: calc(var(--bothub-scale, 1) * 74px);
     background: var(--darktheme-gray-scale-gray-4);
     color: #fff;
     &::placeholder {
-        color: #fff;
         font-size: calc(var(--bothub-scale, 1) * 12px);
+        font-family: var(--font-family);
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 129%;
+        color: var(--darktheme-gray-scale-gray-1);
+    }
+    &:focus{
+        outline: none;
     }
 }
 
