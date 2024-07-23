@@ -7,16 +7,18 @@ import { IItem } from "../../types";
 const Opportunities: React.FC = () => {
   const itemList = items;
   return (
-    <div className="container">
-      <div className={style.opp}>
-        <h1 className={style.title}>Возможности ChatGPT</h1>
-        <div className={style.list}>
-          {itemList.items.map((item: IItem, id) => (
-            <OppItem item={item} key={id} />
-          ))}
+    <section>
+      <div className="container">
+        <div className={style.opp}>
+          <h1 className={style.title}>Возможности ChatGPT</h1>
+          <div className={style.list}>
+            {itemList.items.map((item: IItem, id) => (
+              <OppItem item={item} key={id} />
+            ))}
+          </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

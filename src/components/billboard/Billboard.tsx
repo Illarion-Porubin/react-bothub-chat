@@ -15,21 +15,29 @@ interface IMessages {
 }
 
 const Billboard: React.FC = () => {
-  const [check, setCheck] = React.useState(false);
-  const [messageList, setMessageList] = React.useState<IMessages[]>([]);
+  const [context, setContext] = React.useState(true);
   const [text, setText] = React.useState<string>("");
+  
+  /// дефолтные данные в массиве messageList можно удалить
+  const [messageList, setMessageList] = React.useState<IMessages[]>([
+    { role: "user", content: "Привет бот!" },
+    { role: "assistant", content: "Привет! Чем я могу помочь?" }
+  ]);
+
 
   const configuration = new Configuration({
-    apiKey:
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MGE2ZTgxLTRiMDMtNGQxNC1hMGQxLWI3N2RkZjlkMDY2ZiIsImlzRGV2ZWxvcGVyIjp0cnVlLCJpYXQiOjE3MjA1Mjk0NDgsImV4cCI6MjAzNjEwNTQ0OH0.Dm8QJpXfX2ChWcYZ5c0SLNzGpmEmh1dYPAMW3wz4v5M",
+    apiKey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MGE2ZTgxLTRiMDMtNGQxNC1hMGQxLWI3N2RkZjlkMDY2ZiIsImlzRGV2ZWxvcGVyIjp0cnVlLCJpYXQiOjE3MjA1Mjk0NDgsImV4cCI6MjAzNjEwNTQ0OH0.Dm8QJpXfX2ChWcYZ5c0SLNzGpmEmh1dYPAMW3wz4v5M",
     basePath: "https://bothub.chat/api/v2/openai/v1",
   });
   const openai = new OpenAIApi(configuration);
+  
 
   const prompt = async () => {
     if (text.trim() !== "") {
       setMessageList((prev) => [...prev, { role: "user", content: text }]);
-      setText("");
+      setTimeout(() => {
+        setText("");
+      }, 10);
     }
   };
 
@@ -115,8 +123,8 @@ const Billboard: React.FC = () => {
                       Сохранить контекст
                       <input
                         className={style.saveContentCheck}
-                        checked={check}
-                        onChange={() => setCheck(!check)}
+                        checked={context}
+                        onChange={() => setContext(prev => !prev)}
                         type="checkbox"
                         id="chatHeadInput"
                       />
@@ -166,7 +174,7 @@ const Billboard: React.FC = () => {
                     </div>
                   </div>
                   <div className={style.chatPrompt}>
-                    <textarea
+                    <input
                       className={style.chatInput}
                       placeholder="Спроси о чем-нибудь..."
                       onChange={(e) => setText(e.target.value)}
